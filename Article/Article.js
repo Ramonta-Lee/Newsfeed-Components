@@ -89,8 +89,61 @@ const data = [
 ];
 
 //  Step 1: Create a function that creates a component. You will want your component to look like the template below: 
+function createArticle(data) {
+  //define new elements
+  const article = document.createElement('div');
+  const titles = document.createElement('h2');
+  const date = document.createElement('p');
+  const firstPara = document.createElement('p');
+  const secondPara = document.createElement('p');
+  const thirdPara = document.createElement('p');
+  const exButton = document.createElement('span');
+
+  //add classes
+
+  article.classList.add('article');
+  date.classList.add('date');
+  exButton.classList.add('expandButton');
+
+  //append classes
+  article.appendChild(titles);
+  article.appendChild(date);
+  article.appendChild(firstPara);
+  article.appendChild(secondPara);
+  article.appendChild(thirdPara);
+  article.appendChild(exButton);
+
+  // set the text content
+  titles.textContent = data.title;
+  date.textContent = data.date;
+  firstPara.textContent = data.firstParagraph;
+  secondPara.textContent = data.secondParagraph;
+  thirdPara.textContent = data.thirdParagraph;
+  exButton.textContent = 'Open'
 
 
+  // event listener
+  exButton.addEventListener('click', () => {
+    article.classList.toggle('article-open');
+    if(exButton.textContent !== 'Open'){
+      exButton.textContent === 'Close'
+    }
+    else {
+      exButton.textContent === 'Open'
+    };
+  });
+
+
+
+  return article;
+}
+
+
+const entryPoint = document.querySelector('.articles');
+data.map(function(currentValue) {
+  let newArticle = createArticle(currentValue);
+  entryPoint.appendChild(newArticle);
+});
 
 
   // <div class="article">
