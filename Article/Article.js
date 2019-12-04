@@ -140,16 +140,12 @@ function createArticle(data) {
     };
   });
 
-
-
   return article;
 }
 
-
-const entryPoint = document.querySelector('.articles');
 data.map(function(currentValue) {
   let newArticle = createArticle(currentValue);
-  entryPoint.appendChild(newArticle);
+  document.querySelector('.articles').appendChild(newArticle);
 });
 
 
