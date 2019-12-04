@@ -22,7 +22,7 @@ let menuItems = [
   // The function takes an array as its only argument.
 
 
-  function menuComponent(menuItems){
+  function menuComponent(arr){
     //define variables
     const menuContainer = document.createElement('div');
     const ulContainer = document.createElement('ul');
@@ -40,19 +40,17 @@ let menuItems = [
       ulContainer.appendChild(listItem);
     });
 
-    const menuButton = document.querySelector('.menu-button'); 
+    const menuButton = document.querySelector('.menu-button');
     menuButton.addEventListener('click', () => {
-      menuButton.classList.toggle('menu--open');
-
-
-
+      menuContainer.classList.toggle('menu--open');
     });
-    return menuContainer;
-  }
 
-  const header = document.querySelector('.header');
+    return menuContainer;
+  };
+
+  const header  = document.querySelector('.header');
   menuItems.forEach(item => {
-    header.appendChild(menuComponent(item.menuItems))
+    header.appendChild(menuComponent())
   });
 
   // Step 2: Inside this function, iterate over the array creating a list item <li> element for each item in the array. 
