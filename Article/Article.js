@@ -85,6 +85,13 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'Building A Professional Resume',
+    date: 'Dec 4, 2019',
+    firstParagraph: 'Start by taking everything you know and throwing it away',
+    secondParagraph: 'Now you can begin to panic because you realize you know nothing',
+    thirdParagraph: 'Now relax we are here to help.'
   }
 ];
 
@@ -119,17 +126,17 @@ function createArticle(data) {
   firstPara.textContent = data.firstParagraph;
   secondPara.textContent = data.secondParagraph;
   thirdPara.textContent = data.thirdParagraph;
-  exButton.textContent = 'Open'
+  exButton.textContent = 'Expand'
 
 
   // event listener
   exButton.addEventListener('click', () => {
     article.classList.toggle('article-open');
-    if(exButton.textContent !== 'Open'){
-      exButton.textContent === 'Close'
+    if(exButton.textContent !== 'Expand'){
+      exButton.textContent = 'Expand'
     }
     else {
-      exButton.textContent === 'Open'
+      exButton.textContent = 'Close'
     };
   });
 
