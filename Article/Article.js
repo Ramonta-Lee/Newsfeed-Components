@@ -126,18 +126,25 @@ function createArticle(data) {
   firstPara.textContent = data.firstParagraph;
   secondPara.textContent = data.secondParagraph;
   thirdPara.textContent = data.thirdParagraph;
-  exButton.textContent = 'Expand'
+  exButton.textContent = 'Expand';
 
 
   // event listener
   exButton.addEventListener('click', () => {
     article.classList.toggle('article-open');
+    
     if(exButton.textContent !== 'Expand'){
       exButton.textContent = 'Expand'
     }
     else {
       exButton.textContent = 'Close'
     };
+    if(exButton.textContent === 'Close') {
+      exButton.addEventListener('click', () => {
+        article.style.display = 'none';
+      });
+    }
+
   });
 
   return article;
@@ -147,6 +154,8 @@ data.map(function(currentValue) {
   let newArticle = createArticle(currentValue);
   document.querySelector('.articles').appendChild(newArticle);
 });
+
+
 
 
   // <div class="article">
